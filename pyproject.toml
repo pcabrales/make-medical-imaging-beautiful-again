@@ -1,0 +1,38 @@
+[project]
+name = "make-medical-imaging-beautiful-again"
+version = "0.1.0"
+description = "Render MRI, CT and PET in the styles of histology and fluorescence microscopy."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "matplotlib>=3.8",
+    "numpy>=1.26",
+    "pillow>=10",
+    "pooch>=1.6",
+    "pydicom>=2.4",
+    "scikit-image>=0.22",
+    "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+dev = ["mypy", "pre-commit", "pytest", "ruff"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["glowup"]
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "NPY"]
+
+[tool.mypy]
+disallow_untyped_defs = true
+ignore_missing_imports = true
+
+[tool.ruff.lint.isort]
+known-first-party = ["glowup", "make_gallery"]
